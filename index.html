@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>React Channel - DennCode</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- =========================
+             NAVBAR
+        ========================== -->
+
+        <header class="navbar">
+
+            <div class="brand">
+
+                <div class="logo">
+                    W
+                </div>
+
+                <div class="brand-text">
+
+                    <h1>Denn Channel</h1>
+
+                    <p>
+                        WhatsApp Channel Tools
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    Online
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             MAIN
+        ========================== -->
+
+        <main>
+
+            <!-- HERO -->
+
+            <section class="hero">
+
+                <span class="badge">
+                    WHATSAPP TOOLS
+                </span>
+
+                <h2>
+                    React Channel
+                </h2>
+
+                <p>
+                    Kirim reaction ke postingan WhatsApp Channel
+                    menggunakan tools sederhana dari DennCode.
+                </p>
+
+            </section>
+
+
+            <!-- =========================
+                 FORM CARDS
+            ========================== -->
+
+            <section class="cards">
+
+
+                <!-- CHANNEL -->
+
+                <div class="card">
+
+                    <div class="card-top">
+
+                        <div>
+
+                            <h3>
+                                Channel
+                            </h3>
+
+                            <p>
+                                Masukkan URL postingan channel
+                            </p>
+
+                        </div>
+
+                        <b>
+                            01
+                        </b>
+
+                    </div>
+
+
+                    <label for="channel">
+
+                        URL Channel
+
+                    </label>
+
+
+                    <input
+                        type="url"
+                        id="channel"
+                        placeholder="https://whatsapp.com/channel/..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <!-- REACTION -->
+
+                <div class="card">
+
+                    <div class="card-top">
+
+                        <div>
+
+                            <h3>
+                                Reaction
+                            </h3>
+
+                            <p>
+                                Pilih reaction yang ingin dikirim
+                            </p>
+
+                        </div>
+
+                        <b>
+                            02
+                        </b>
+
+                    </div>
+
+
+                    <label for="reaction">
+
+                        Reaction
+
+                    </label>
+
+
+                    <div class="reaction-wrapper">
+
+                        <input
+                            type="text"
+                            id="reaction"
+                            placeholder="Contoh: ❤️"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <!-- QUICK REACTION -->
+
+                    <div class="quick-reactions">
+
+                        <button
+                            type="button"
+                            onclick="setReaction('❤️')"
+                        >
+                            ❤️
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="setReaction('👍')"
+                        >
+                            👍
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="setReaction('😂')"
+                        >
+                            😂
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="setReaction('🔥')"
+                        >
+                            🔥
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="setReaction('😮')"
+                        >
+                            😮
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="setReaction('😢')"
+                        >
+                            😢
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 ACTION
+            ========================== -->
+
+            <section class="action">
+
+                <div class="action-left">
+
+                    <div class="action-icon">
+                        ⚡
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Channel Action
+                        </h3>
+
+                        <p>
+                            Jalankan reaction ke URL channel
+                            yang sudah dimasukkan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="reactButton"
+                    type="button"
+                    onclick="reactChannel()"
+                >
+
+                    <span>
+                        React Channel
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </section>
+
+
+            <!-- =========================
+                 RESULT
+            ========================== -->
+
+            <section class="result-card">
+
+                <div class="result-header">
+
+                    <div>
+
+                        <h3>
+                            Response
+                        </h3>
+
+                        <p>
+                            Status dari API
+                        </p>
+
+                    </div>
+
+                    <span
+                        id="resultBadge"
+                        class="result-badge"
+                    >
+                        READY
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="result"
+                    class="result"
+                >
+
+                    <div class="result-empty">
+
+                        <div class="result-empty-icon">
+                            ✓
+                        </div>
+
+                        <p>
+                            Belum ada request
+                        </p>
+
+                        <span>
+                            Masukkan URL dan reaction,
+                            lalu tekan React Channel.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 INFORMATION
+            ========================== -->
+
+            <section class="information">
+
+
+                <div class="info">
+
+                    <small>
+                        STATUS
+                    </small>
+
+                    <strong id="status">
+                        Ready
+                    </strong>
+
+                </div>
+
+
+                <div class="info">
+
+                    <small>
+                        CHANNEL
+                    </small>
+
+                    <strong id="channelStatus">
+                        Belum diisi
+                    </strong>
+
+                </div>
+
+
+                <div class="info">
+
+                    <small>
+                        REACTION
+                    </small>
+
+                    <strong id="reactionStatus">
+                        Belum dipilih
+                    </strong>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer>
+
+            <p>
+                © 2026 DennCode • WhatsApp Channel Tools
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const channelInput =
+            document.getElementById("channel");
+
+        const reactionInput =
+            document.getElementById("reaction");
+
+        const statusText =
+            document.getElementById("status");
+
+        const channelStatus =
+            document.getElementById("channelStatus");
+
+        const reactionStatus =
+            document.getElementById("reactionStatus");
+
+        const result =
+            document.getElementById("result");
+
+        const resultBadge =
+            document.getElementById("resultBadge");
+
+        const reactButton =
+            document.getElementById("reactButton");
+
+
+        /* =========================
+           CHANNEL INPUT
+        ========================== */
+
+        channelInput.addEventListener(
+            "input",
+            function () {
+
+                const value =
+                    this.value.trim();
+
+                channelStatus.textContent =
+                    value || "Belum diisi";
+
+            }
+        );
+
+
+        /* =========================
+           REACTION INPUT
+        ========================== */
+
+        reactionInput.addEventListener(
+            "input",
+            function () {
+
+                const value =
+                    this.value.trim();
+
+                reactionStatus.textContent =
+                    value || "Belum dipilih";
+
+            }
+        );
+
+
+        /* =========================
+           SET REACTION
+        ========================== */
+
+        function setReaction(reaction) {
+
+            reactionInput.value =
+                reaction;
+
+            reactionStatus.textContent =
+                reaction;
+
+        }
+
+
+        /* =========================
+           REACT CHANNEL
+        ========================== */
+
+        async function reactChannel() {
+
+            const url =
+                channelInput.value.trim();
+
+            const reaction =
+                reactionInput.value.trim();
+
+
+            /* VALIDASI URL */
+
+            if (!url) {
+
+                statusText.textContent =
+                    "URL belum diisi";
+
+                resultBadge.textContent =
+                    "ERROR";
+
+                result.innerHTML = `
+                    <div class="result-message error">
+                        <strong>URL Channel belum diisi.</strong>
+                        <span>
+                            Masukkan URL postingan WhatsApp Channel.
+                        </span>
+                    </div>
+                `;
+
+                channelInput.focus();
+
+                return;
+            }
+
+
+            /* VALIDASI REACTION */
+
+            if (!reaction) {
+
+                statusText.textContent =
+                    "Reaction belum dipilih";
+
+                resultBadge.textContent =
+                    "ERROR";
+
+                result.innerHTML = `
+                    <div class="result-message error">
+                        <strong>Reaction belum dipilih.</strong>
+                        <span>
+                            Masukkan atau pilih reaction terlebih dahulu.
+                        </span>
+                    </div>
+                `;
+
+                reactionInput.focus();
+
+                return;
+            }
+
+
+            /* LOADING */
+
+            statusText.textContent =
+                "Memproses...";
+
+            resultBadge.textContent =
+                "LOADING";
+
+            reactButton.disabled =
+                true;
+
+            reactButton.innerHTML = `
+                <span>Memproses...</span>
+                <span>...</span>
+            `;
+
+
+            result.innerHTML = `
+                <div class="result-loading">
+
+                    <div class="loader"></div>
+
+                    <p>
+                        Menghubungi server...
+                    </p>
+
+                    <span>
+                        Mohon tunggu sebentar.
+                    </span>
+
+                </div>
+            `;
+
+
+            try {
+
+                /*
+                 * Request menuju Vercel Serverless Function.
+                 *
+                 * API key TIDAK ditaruh di sini.
+                 *
+                 * API key disimpan di:
+                 *
+                 * Vercel Environment Variables
+                 * REACT_API_KEY
+                 */
+
+                const response =
+                    await fetch(
+                        `/api/react?url=${encodeURIComponent(url)}&reaction=${encodeURIComponent(reaction)}`
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                console.log(
+                    "API Response:",
+                    data
+                );
+
+
+                /* RESPONSE BERHASIL */
+
+                if (response.ok) {
+
+                    statusText.textContent =
+                        "Berhasil";
+
+                    resultBadge.textContent =
+                        "SUCCESS";
+
+
+                    result.innerHTML = `
+                        <div class="result-message success">
+
+                            <strong>
+                                Request berhasil dikirim.
+                            </strong>
+
+                            <span>
+                                Reaction:
+                                ${escapeHtml(reaction)}
+                            </span>
+
+                            <pre>${escapeHtml(
+                                JSON.stringify(
+                                    data,
+                                    null,
+                                    2
+                                )
+                            )}</pre>
+
+                        </div>
+                    `;
+
+                }
+
+
+                /* RESPONSE ERROR */
+
+                else {
+
+                    statusText.textContent =
+                        "Request gagal";
+
+                    resultBadge.textContent =
+                        "ERROR";
+
+
+                    result.innerHTML = `
+                        <div class="result-message error">
+
+                            <strong>
+                                Request gagal.
+                            </strong>
+
+                            <span>
+                                ${
+                                    escapeHtml(
+                                        data.message ||
+                                        "API mengembalikan error."
+                                    )
+                                }
+                            </span>
+
+                            <pre>${escapeHtml(
+                                JSON.stringify(
+                                    data,
+                                    null,
+                                    2
+                                )
+                            )}</pre>
+
+                        </div>
+                    `;
+
+                }
+
+            }
+
+
+            catch (error) {
+
+                console.error(error);
+
+
+                statusText.textContent =
+                    "Server error";
+
+                resultBadge.textContent =
+                    "ERROR";
+
+
+                result.innerHTML = `
+                    <div class="result-message error">
+
+                        <strong>
+                            Tidak dapat menghubungi server.
+                        </strong>
+
+                        <span>
+                            Pastikan endpoint
+                            <b>/api/react</b>
+                            tersedia di Vercel.
+                        </span>
+
+                    </div>
+                `;
+
+            }
+
+
+            finally {
+
+                reactButton.disabled =
+                    false;
+
+                reactButton.innerHTML = `
+                    <span>
+                        React Channel
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+                `;
+
+            }
+
+        }
+
+
+        /* =========================
+           ESCAPE HTML
+        ========================== */
+
+        function escapeHtml(value) {
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+    </script>
+
+</body>
+  </html>
