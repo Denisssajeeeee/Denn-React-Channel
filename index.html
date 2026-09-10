@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DennCode • Channel Reaction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <div class="brand">
+        <div class="logo">D</div>
+        <div>
+          <h1>DennCode</h1>
+          <p>WhatsApp Channel Reaction</p>
+        </div>
+      </div>
+
+      <div class="limit">[ Limit Harian 1 ] <span>Reset setelah 24 jam</span></div>
+
+      <form id="reactionForm">
+        <label for="url">Link Pesan Saluran</label>
+        <input id="url" name="url" type="url"
+          placeholder="https://whatsapp.com/channel/..." required>
+
+        <label for="reaction">Emoji</label>
+        <input id="reaction" name="reaction" type="text"
+          placeholder="🔥" maxlength="10" required>
+
+        <button id="submitBtn" type="submit">Kirim Sekarang</button>
+      </form>
+
+      <div id="status" class="status hidden"></div>
+
+      <footer>
+        <span>Powered by DennCode</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
